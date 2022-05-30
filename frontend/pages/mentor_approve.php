@@ -73,7 +73,24 @@ $acceptances = $acc->getApprove();
             }
         }
     </script>
-    <style>
+      <style>
+        .sidebar #username_logo {
+            display: none;
+        }
+
+        #profil_image {
+            display: none !important;
+        }
+
+        .responsive-top {
+            display: none;
+        }
+
+        .active {
+            color: #DDB07F !important;
+            border-bottom: solid 4px #DDB07F;
+        }
+
         .in-active {
             width: 80px !important;
             padding: 20px 15px !important;
@@ -101,11 +118,95 @@ $acceptances = $acc->getApprove();
         .sidebar {
             transition: .5s ease-in-out;
         }
-    </style>
+
+        @media screen and (max-width: 414px) {
+            .responsive-top {
+                display: block;
+            }
+
+            #profil_image {
+                display: flex !important;
+            }
+
+            .logo-smk {
+                display: none !important;
+            }
+
+            .assignment-table th,
+            .assignment-table td {
+                font-size: 9px;
+            }
+
+            .assignment-table img {
+                width: 45%;
+            }
+
+            .sidebar h2,
+            .sidebar h4,
+            .sidebar .logo-incareer,
+            .sidebar hr,
+            .sidebar #btnToggle {
+                display: none !important;
+            }
+
+            .sidebar #username_logo {
+                display: block;
+                margin: 0;
+            }
+
+            .breadcrumb ul {
+                font-size: .5rem;
+            }
+
+            .topic-title p {
+                font-size: 1.35rem;
+            }
+
+            .mentor-profile img {
+                width: 20%;
+            }
+
+            .mentor-profile p {
+                font-size: .5rem;
+            }
+
+            .direction p {
+                font-size: .5rem;
+            }
+
+            .tab-menu ul {
+                font-size: .6rem;
+            }
+
+            .in-active {
+                width: 80px !important;
+                padding: 10px 15px !important;
+                transition: .5s ease-in-out;
+            }
+
+
+            .sidebar {
+                position: absolute;
+                z-index: 1;
+            }
+
+            .rightbar {
+                margin-left: 80px;
+            }
+
+
+        }
+    </style
 
 </head>
 
 <body>
+<div class="responsive-top p-5">
+        <div class="container flex flex-column justify-between mt-4 mb-4">
+            <img class="w-[280px] logo-smk1" src="../src/code.svg" alt="Logo SMK">
+            <img src="Img/icons/toggle_icons.svg" alt="toggle_dashboard" class="w-8 cursor-pointer" id="btnToggle2">
+        </div>
+    </div>
     <div class="flex items-center">
         <!-- Left side (Sidebar) -->
         <div class="bg-white w-[350px] h-screen px-8 py-6 flex flex-col justify-between sidebar in-active">
@@ -114,7 +215,7 @@ $acceptances = $acc->getApprove();
                 <!-- Header -->
                 <div class="flex items-center space-x-4 px-2">
                     <img src="Img/icons/toggle_icons.svg" alt="toggle_dashboard" class="w-8 cursor-pointer" id="btnToggle">
-                    <img class="w-[150px] logo-smk" src="../src/logofix.png" alt="Logo In Career">
+                    <img class="logo-smk -translate-x-6 " src="../src/code.svg" alt="Logo SMK">
                 </div>
 
                 <hr class="border-[1px] border-opacity-50 border-[#93BFC1]">
@@ -189,7 +290,7 @@ $acceptances = $acc->getApprove();
 
 
         <!-- Right side -->
-        <div class="bg-cgray w-full h-screen px-10 py-6 flex flex-col gap-y-6 overflow-y-scroll">
+        <div class="bg-cgray w-full h-screen px-10 py-6 flex flex-col gap-y-6 overflow-y-scroll rightbar">
             <!-- Header / Profile -->
             <div class="flex items-center gap-x-4 justify-end">
                 <img class="w-10" src="./Img/icons/default_profile.svg" alt="Profile Image">
@@ -212,7 +313,7 @@ $acceptances = $acc->getApprove();
                         <span class="text-light-green">/</span>
                     </li>
                     <li>
-                        <a class="text-light-green font-semibold" href="#">Book</a>
+                        <a class="text-light-green font-semibold" href="#">Session</a>
                     </li>
                 </ul>
             </div>
@@ -222,10 +323,10 @@ $acceptances = $acc->getApprove();
                         <a href="#"><p>Session</p></a>
                         
                     </li>
-                    <a href="http://localhost/websocket/web-chat-room/frontend/pages/mentor.php"><li class="text-dark-green hover:text-cream hover:border-b-4 hover:border-cream h-[50px] flex items-center font-semibold  cursor-pointer">
+                    <a href="http://localhost/websocket/frontend/pages/mentor.php"><li class="text-dark-green hover:text-cream hover:border-b-4 hover:border-cream h-[50px] flex items-center font-semibold  cursor-pointer">
                          Booking 
                     </li></a>   
-                    <a href="http://localhost/websocket/web-chat-room/frontend/pages/mentor_set_schedule.php"><li class="text-dark-green hover:text-cream hover:border-b-4 hover:border-cream h-[50px] flex items-center font-semibold  cursor-pointer">
+                    <a href="http://localhost/websocket/frontend/pages/mentor_set_schedule.php"><li class="text-dark-green hover:text-cream hover:border-b-4 hover:border-cream h-[50px] flex items-center font-semibold  cursor-pointer">
                         <p>Add Schedule</p>
                     </li></a>
                 </ul>
@@ -290,6 +391,9 @@ $acceptances = $acc->getApprove();
         let btnToggle = document.getElementById('btnToggle');
         let sidebar = document.querySelector('.sidebar');
         btnToggle.onclick = function() {
+            sidebar.classList.toggle('in-active');
+        }
+         btnToggle2.onclick = function() {
             sidebar.classList.toggle('in-active');
         }
     </script>
