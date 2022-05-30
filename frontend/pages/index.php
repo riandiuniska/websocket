@@ -419,7 +419,7 @@ $user = $objUser->getUserByEmail();
                             </button>
                         </div>
                         <!-- Modal body -->
-                        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                        <div class="relative bg-white rounded-lg dark:bg-gray-700">
                             <form class="mt-4 px-6 pb-4 space-y-6 lg:px-8 sm:pb-6 xl:pb-8" action="../../action/saveRoom.php" method="post">
                                 <h3 class="text-xl font-medium text-gray-900 text-center dark:text-white">Book Your
                                     Appointment</h3>
@@ -437,14 +437,14 @@ $user = $objUser->getUserByEmail();
                                     <label for="text"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300 after:content-['*'] after:ml-0.5 after:text-red-500">Nama
                                         Lengkap</label>
-                                    <input type="text" name="name" id="name"
+                                    <input type="text" name="name" id="name" disabled
                                         class="bg-gray-50 border border-gray-300 -mb-4 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                         placeholder="Nama Lengkap" value="<?= $_SESSION['user'] ?>" required>
                                 </div>
                                 <div>
                                     <label for="email"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300  after:content-['*'] after:ml-0.5 after:text-red-500">Email</label>
-                                        <input type="email" name="email" id="email"
+                                        <input type="email" name="email" id="email" disabled
                                         class="bg-gray-50 border border-gray-300 -mb-4 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white invalid:text-red-600 invalid:focus:ring-red-600 invalid:focus:border-red-600 peer"
                                         placeholder="email@example.com" value="<?= $_SESSION['email'] ?>">
                                     <p class="mt-5 -mb-5 italic text-xs invisible peer-invalid:visible text-red-600">
