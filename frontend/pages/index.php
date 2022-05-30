@@ -474,7 +474,7 @@ $user = $objUser->getUserByEmail();
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300 after:content-['*'] after:ml-0.5 after:text-red-500">Topic</label>
                                     <textarea id="message" rows="4" name="topic"
                                         class="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                        placeholder="Leave a comment..."></textarea>
+                                        placeholder="Leave a comment..." required></textarea>
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" name="submit" value="success"
