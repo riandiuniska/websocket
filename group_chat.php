@@ -508,7 +508,6 @@ echo "<input type='hidden' name='userId' id='userId' value='" . $_SESSION['id'] 
                         styleBox = 'bg-red-200 text-right ml-auto';
                         styleBox2 = 'ml-[150px]';
                         styleBox3 = 'text-right';
-                        styleBox5 = 'aa';
                         val['name'] = "Me";
                     } else {
                         styleBox = 'bg-green-200 text-left mr-auto';
@@ -642,4 +641,7 @@ echo "<input type='hidden' name='userId' id='userId' value='" . $_SESSION['id'] 
 
 </body>
 
+<!-- INI KOMENTAR -->
+
 </html>
+
