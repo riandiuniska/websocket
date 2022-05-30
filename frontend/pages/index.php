@@ -26,7 +26,6 @@ if (!isset($_SESSION['user'])) {
 
 
 // mendpatkan data user mentor
-
 $mentors = $objUser->getUserMentor();
 
 
@@ -76,7 +75,24 @@ $user = $objUser->getUserByEmail();
         }
     }
     </script>
-    <style>
+     <style>
+    .sidebar #username_logo {
+        display: none;
+    }
+
+    #profil_image {
+        display: none !important;
+    }
+
+    .responsive-top {
+        display: none;
+    }
+
+    .active {
+        color: #DDB07F !important;
+        border-bottom: solid 4px #DDB07F;
+    }
+
     .in-active {
         width: 80px !important;
         padding: 20px 15px !important;
@@ -104,11 +120,95 @@ $user = $objUser->getUserByEmail();
     .sidebar {
         transition: .5s ease-in-out;
     }
+
+    @media screen and (max-width: 414px) {
+        .responsive-top {
+            display: block;
+        }
+
+        #profil_image {
+            display: flex !important;
+        }
+
+        .logo-smk {
+            display: none !important;
+        }
+
+        .assignment-table th,
+        .assignment-table td {
+            font-size: 9px;
+        }
+
+        .assignment-table img {
+            width: 45%;
+        }
+
+        .sidebar h2,
+        .sidebar h4,
+        .sidebar .logo-incareer,
+        .sidebar hr,
+        .sidebar #btnToggle {
+            display: none !important;
+        }
+
+        .sidebar #username_logo {
+            display: block;
+            margin: 0;
+        }
+
+        .breadcrumb ul {
+            font-size: .5rem;
+        }
+
+        .topic-title p {
+            font-size: 1.35rem;
+        }
+
+        .mentor-profile img {
+            width: 20%;
+        }
+
+        .mentor-profile p {
+            font-size: .5rem;
+        }
+
+        .direction p {
+            font-size: .5rem;
+        }
+
+        .tab-menu ul {
+            font-size: .6rem;
+        }
+
+        .in-active {
+            width: 80px !important;
+            padding: 10px 15px !important;
+            transition: .5s ease-in-out;
+        }
+
+
+        .sidebar {
+            position: absolute;
+            z-index: 1;
+        }
+
+        .rightbar {
+            margin-left: 80px;
+        }
+
+
+    }
     </style>
 
 </head>
 
 <body>
+<div class="responsive-top p-5">
+        <div class="container flex flex-column justify-between mt-4 mb-4">
+            <img class="w-[280px] logo-smk1" src="../src/code.svg" alt="Logo SMK">
+            <img src="Img/icons/toggle_icons.svg" alt="toggle_dashboard" class="w-8 cursor-pointer" id="btnToggle2">
+        </div>
+    </div>
     <div class="flex items-center">
         <!-- Left side (Sidebar) -->
         <div class="bg-white w-[350px] h-screen px-8 py-6 flex flex-col justify-between sidebar in-active">
@@ -118,7 +218,7 @@ $user = $objUser->getUserByEmail();
                 <div class="flex items-center space-x-4 px-2">
                     <img src="Img/icons/toggle_icons.svg" alt="toggle_dashboard" class="w-8 cursor-pointer"
                         id="btnToggle">
-                    <img class="w-[150px] logo-smk" src="../src/logofix.png" alt="Logo In Career">
+                    <img class="logo-smk -translate-x-6 " src="../src/code.svg" alt="Logo SMK">
                 </div>
 
                 <hr class="border-[1px] border-opacity-50 border-[#93BFC1]">
@@ -205,7 +305,7 @@ $user = $objUser->getUserByEmail();
 
 
         <!-- Right side -->
-        <div class="bg-cgray w-full h-screen px-10 py-6 flex flex-col gap-y-6 overflow-y-scroll">
+        <div class="bg-cgray w-full h-screen px-10 py-6 flex flex-col gap-y-6 overflow-y-scroll rightbar">
             <!-- Header / Profile -->
             <div class="flex items-center gap-x-4 justify-end">
                 <img class="w-10" src="./Img/icons/default_profile.svg" alt="Profile Image">
@@ -214,7 +314,7 @@ $user = $objUser->getUserByEmail();
 
             <!-- Breadcrumb -->
             <div>
-                <ul class="flex items-center gap-x-4">
+            <ul class="flex items-center gap-x-4">
                     <li>
                         <a class="text-light-green" href="#">Home</a>
                     </li>
@@ -224,32 +324,33 @@ $user = $objUser->getUserByEmail();
                     <li>
                         <a class="text-light-green" href="#">Consult</a>
                     </li>
+                    <li>
+                        <span class="text-light-green">/</span>
+                    </li>
+                    <li>
+                        <a class="text-light-green font-semibold" href="">Booking</a>
+                    </li>
                 </ul>
             </div>
-            <div class="flex flex-col sm:flex-row bg-white h-24 sm:h-12 w-full rounded-xl pl-3 sm:pl-5">
-                <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
-                    class="flex justify-start items-center py-2 pr-4 pl-3 w-2/5 font-medium text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-gray-400 dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Booking
-                    <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                            clip-rule="evenodd"></path>
-                    </svg></button>
-                <!-- Dropdown menu -->
-                <div id="dropdownNavbar"
-                    class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
-                    <ul class="py-1 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
-                        <li>
-                            <a href="daftarRequest.php"
-                                class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Session</a>
+             <div class="bg-white w-full h-[50px] flex content-center px-10 rounded-xl">
+                <ul class="flex items-center gap-x-8">
+                    <a href="http://localhost/websocket/frontend/pages/daftarRequest.php">
+                        <li
+                            class="text-dark-green hover:text-cream hover:border-b-4 hover:border-cream h-[50px] flex items-center font-semibold  cursor-pointer">
+                            <p>Status</p>
+
                         </li>
-                        <li>
-                            <a href="#"
-                                class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Booking</a>
-                        </li>
-                    </ul>
-                </div>
+                    </a>
+
+                    <a href="">
+                        <li
+                            class="text-dark-green text-cream border-b-4 border-cream h-[50px] flex items-center font-semibold  cursor-pointer ">
+                            Booking</li>
+                    </a>
+
+                </ul>
             </div>
+
             <?php
                 
                 if( isset($_GET['message']) and ($_GET['message'] == 'success')){
@@ -404,6 +505,9 @@ $user = $objUser->getUserByEmail();
     let btnToggle = document.getElementById('btnToggle');
     let sidebar = document.querySelector('.sidebar');
     btnToggle.onclick = function() {
+        sidebar.classList.toggle('in-active');
+    }
+    btnToggle2.onclick = function() {
         sidebar.classList.toggle('in-active');
     }
     </script>
